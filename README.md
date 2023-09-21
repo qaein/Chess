@@ -86,3 +86,50 @@ piece functions:
   str get_pos()
     this function returns the internally held location for the piece
     
+legal piece movements:
+all legal moves must be on the board (A1 through H8)
+
+pawn -
+  can move forward 1 or 2 spaces if it is on its starting location 
+    the space in front of it, and the space it moves to (if those are different) must be empty
+  can only move forward 1 space if it is not on its starting location and is moving forward
+    space it moves to must be empty
+  can move forward 1 space and sideways (either way) 1 space if it is attacking
+    can attack anything owned by the opposing player on the space it moves diagonally to
+    can attack a pawn owned by the opposing player on the space adjacent to it
+      the move previous to this must be that same pawn moving forward 2 spaces
+      known as en passant
+
+knight -
+  can move 2 spaces in one direction and 1 space orthogonally to the first direction
+    space it moves to must either be empty or held by a piece owned by the opposing player
+
+bishop -
+  can move diagonally (same increment or decrement of columns as rows) as far as the player wants 
+    the spaces between its starting and ending location must be empty
+    the ending location must be empty or be held by a piece owned by the opposing player
+
+rook -
+  can move horizontally or vertically as far as the player wants
+    the spaces between its starting and ending location must be empty
+    the ending locaiton must be empty or be held by a piece owned by the opposing player
+  can castle
+    rook and king must not have moved during this game
+    there are no pieces between the rook and king
+    the king is not in check
+    the square the king goes to and the intervening square cannot be under attack (cannot castle through check)
+    moves with king
+      king moves 2 spaces
+      rook moves to opposite side of king (2 or 3 spaces, depending on which rook castles)
+
+queen -
+  can move horizontally, vertically, or diagonally as far as the player wants
+    the spaces between its starting and ending locations must be empty
+    the ending location must be empty or be held by a piece owned by the opposing player
+
+king -
+  can move one space horizontally, vertically or diagonally
+    cannot move onto a space which contains a piece owned by the same player
+    cannot move into a space which is threatened (something can move there next turn)
+  can castle
+    see rook explanation
