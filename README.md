@@ -46,6 +46,13 @@ board Functions:
           4a) if promotion_type is incorrect, raise TypeError (explaining what the correct types are)
       This function returns a piece of the selected type initialized with the pawn at loc as the input
 
+  list board.get_state()
+    This function should return the current state of the board as a list, where list[0] corresponds to A1, list[1] corresponds to A2,
+    list[8] corresponds to B1, and list[63] corresponds to H8 (with all intervening cells corresponding to the relative coordinate along the way)
+
+    The contents of each cell of the list should be a string in the form described above (i.e., 'wp', 'bq', etc...). 
+    Empty cells should be represented with an empty string ("")
+
   board.reset()
     This function resets the board to initial state. (Use piece.TOP_COLOR and piece.BOTTOM_COLOR instead of w and b when initializing)
       1) row A is:
