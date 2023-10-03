@@ -12,9 +12,9 @@ all string representations of pieces shall be in the form of (color)(piece), whe
 'q' = queen
 'k' = king
 
-as an example, the row A1 to A8 is: wr, wn, wb, wk, wq, wb, wn, wr
+as an example, the row A1 to H1 is: wr, wn, wb, wk, wq, wb, wn, wr
 
-The board is laid out so that the top left corner square (A1) is white, the top row is row A, the bottom row is row H, the left column is column 1, the right column is column 8.
+The board is laid out so that the top left corner square (A1) is white, the top row is row 1, the bottom row is row 8, the left column is column A, the right column is column H.
 
 board Functions:
   bool board.move([present_loc],[new_loc])
@@ -47,27 +47,27 @@ board Functions:
       This function returns a piece of the selected type initialized with the pawn at loc as the input
 
   list board.get_state()
-    This function should return the current state of the board as a list, where list[0] corresponds to A1, list[1] corresponds to A2,
-    list[8] corresponds to B1, and list[63] corresponds to H8 (with all intervening cells corresponding to the relative coordinate along the way)
+    This function should return the current state of the board as a list, where list[0] corresponds to A1, list[1] corresponds to B1,
+    list[8] corresponds to A2, and list[63] corresponds to H8 (with all intervening cells corresponding to the relative coordinate along the way)
 
     The contents of each cell of the list should be a string in the form described above (i.e., 'wp', 'bq', etc...). 
     Empty cells should be represented with an empty string ("")
 
   board.reset()
     This function resets the board to initial state. (Use piece.TOP_COLOR and piece.BOTTOM_COLOR instead of w and b when initializing)
-      1) row A is:
+      1) row 1 is:
         A1: wr
-        A2: wn
-        A3: wb
-        A4: wk
-        A5: wq
-        A6: wb
-        A7: wn
-        A8: wr
-      2) row B is all wp's
-      3) rows C through F are empty ("")
-      4) row G is all bp's
-      5) row H is similar to row A except black, H4 is bq and H5 is bk
+        B1: wn
+        C1: wb
+        D1: wk
+        E1: wq
+        F1: wb
+        G1: wn
+        H1: wr
+      2) row 2 is all wp's
+      3) rows 3 through 6 are empty ("")
+      4) row 7 is all bp's
+      5) row 8 is similar to row A except black, D8 is bq and E8 is bk
       
     I am unsure how well the embedded garbage collector works, so would prefer placing all pieces from the previous game back to their original locations, 
     but demoting pieces may get a bit trickier than relying on the garbage collector.
